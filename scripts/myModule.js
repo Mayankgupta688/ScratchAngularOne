@@ -1,0 +1,1 @@
+var app = angular.module("myModule", ["myModuleTwo", "myDirectiveModule", "scopeTesting1DirectiveModule"]);

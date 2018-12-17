@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
+        <title>myAngularScratch</title>
+    </head>
+    <body>
+        <div ng-app="myModule">
+            <div ng-controller="myController">
+                <b>Name:</b> <label ng-bind="name"></label> <br><br>
+                <b>Age:</b> <label ng-bind="age"></label><br><br>
+                <b>Salary:</b> <label ng-bind="sal"></label><br><br>
+                <b>Incremented Salary:</b> <label ng-bind="incrementedSalary"></label> <br><br>
+            </div>
+            <div ng-controller="myControllerTwo">
+                <b>Address:</b> <label ng-bind="address"></label><br><br>
+                <b>Company:</b> <label ng-bind="company"></label><br><br>
+            </div>
+            <hr><hr>
+            <div ng-controller="custumController1">
+                <b>Customer Name:</b> <label ng-bind="customers[0].name"></label><br><br> <!-- here also name gets changed (name will be blank 
+                                                                                               in all places if controller inside directive also 
+                                                                                               contain this parameter in its scope as "Customers.name" ) -->
+                <b>Product:</b> <label ng-bind="customers[0].product"></label><br><br>
+                <hr><hr><hr>
+                <scope-false-controller-scope-present-directive></scope-false-controller-scope-present-directive><br><br>
+                <scope-false-controller-scope-not-present-directive></scope-false-controller-scope-not-present-directive><br><br>  <!-- here also name will be blank as it inherit name from parent controller 
+                                                                                                                                        which is blank currently. (In ideal case it will show value)-->
+            </div>
+            <hr><hr>
+            <div ng-controller="custumController2">
+                <b> Controller: {{myLocation}}</b>   
+                <h2> Payment is: </h2> <inpur type="text" ng-model="payment"/>
+                <scope-true-directive ng-transclude>Hi Transcluded Text</scope-true-directive> <br><br>
+                <scope-empty-directive location = "{{myLocation}}"></scope-empty-directive> <br><br>
+                <hr><hr>
+                <b>Delayed message: {{message}}</b> <br><br>
+                <button ng-click="delayedFunction();">Click Me</button> <br><br>
+                <b>Delayed message with apply: {{messageAnother}}</b> <br><br>
+                <button ng-click="delayedAnotherFunction();">Click Me</button> <br><br>
+                <b>Delayed message with apply: {{messageApply}}</b> <br><br>
+                <button ng-click="delayWithApplyFunction();">Click Me</button> <br><br>
+                <b>Delayed message with wrapped apply: {{messageWrappedApply}}</b> <br><br>
+                <button ng-click="delayWrappedApplyFunction();">Click Me</button> <br><br>
+                <hr><hr>
+                
+            </div>
+        </div>
+        <script src="./scripts/scopeTesting1Directive.js"></script>
+        <script src="./scripts/myModuleTwo.js"></script>
+        <script src="./scripts/myControllerTwo.js"></script>
+        <script src="./scripts/myModule.js"></script>
+        <script src="./scripts/myFactory.js"></script>
+        <script src="./scripts/myService.js"></script>
+        <script src="./scripts/myController.js"></script>
+        <script src="./scripts/myDirectiveModule.js"></script>
+    </body>
+</html>
